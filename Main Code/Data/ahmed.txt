@@ -1,0 +1,12 @@
+Data Scientist-AI ProfessionalZ 
+Hey My name is Sarfaraz Ahmed.
+As a dedicated Data Scientist with one year of professional experience, my expertise spans the realms of NLP, LLMs, and Computer Vision. I've honed my skills through extensive work in developing LLMs, leveraging tools such as LangChain for seamless integration of LLMs and fine-tuning of data. In addition to this, I possess substantial expertise in Object Detection and the art of prompt engineering.
+
+My proficiency extends to cloud deployment, with hands-on experience in both Azure and AWS. I've also delved into the intricacies of ChromaDB and Pinecone Vector databases, specifically tailored to enhance the performance of LLMs. Furthermore, I've fine-tuned cutting-edge models, including GPT-3.5 and GPT-4, and have developed innovative AI applications utilizing OpenAI's models such as Whisper and DALL-E.
+
+My professional ethos is underpinned by an unwavering commitment to upholding high standards of code quality and thorough testing. I thrive on proactive problem-solving and consistently demonstrate my willingness to go the extra mile. My strengths are complemented by exceptional interpersonal and communication skills, with a natural inclination toward leadership opportunities.
+
+
+Top Technicalities: Python,ML, Deep Learning NLP, Computer Vision, LLMs, LangChain, Flask, Tensorflow, PyTorch, Sk-learn, Data Visualization (Matplotlib, Seaborn) SQL (MySQL, PostgreSQL, Oracle), Vector Database (ChromaDB, Pinecone), Azure Cloud, AWS,
+Email: sarfaraz.ahmed@xflowtech.net
+Address: Sector I8/3 - Islamabad, Pakistan

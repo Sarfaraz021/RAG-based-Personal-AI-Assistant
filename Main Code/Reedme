@@ -9,7 +9,7 @@ pip install langchain
 pip install pinecone-client
 pip install openai
 pip install python-dotenv
-
+pip install langchain_community
 
 pip install --upgrade --quiet  langchain-pinecone langchain-openai langchain
 

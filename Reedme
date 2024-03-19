@@ -19,12 +19,18 @@ pip install "unstructured[docx]"
 pip install "unstructured[pdf]
 pip install requests
 pip install fastapi
+pip install uvicorn
+
 
 Git Commands for version control:
 git add .
 git commit -m "define commit"
 git push origin 'branch name'
 git branch----> to check current branch
+
+To Run Server:
+uvicorn main:app --host 0.0.0.0 --port 5000 --reload
+
 
 pip install --upgrade --quiet  langchain-pinecone langchain-openai langchain
 

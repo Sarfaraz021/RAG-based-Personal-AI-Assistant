@@ -1,0 +1,8 @@
+Prompts to test Rag Asisstant:
+
+1 - Je prévois d'améliorer ma stratégie de publicités sur Facebook en apprenant des concurrents réussis et des leaders du secteur. Comment puis-je effectuer une veille créative efficace pour améliorer ma bibliothèque de publicités, et quels outils puis-je utiliser pour analyser et sauvegarder les publicités performantes ?
+
+2 - Je débute en marketing digital et je veux optimiser mon e-commerce avec la pub Facebook. Pouvez-vous m'expliquer les KPIs comme le CPA et le ROS et leur calcul ? J'ai besoin d'aide pour utiliser un tableur avec un prix de vente de 17€, et des coûts divers (produit à 3,90€, emballage à 0,80€, livraison à 3,80€, frais de livraison à 2,90€).
+
+3 - Parlez-moi de Dany Trejo qui vit en France ?.
+

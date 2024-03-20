@@ -28,32 +28,32 @@ class RAG:
         return response['result']
 
 
-chain = None  # Initialize outside the class
+# chain = None  # Initialize outside the class
 
 
-def initialize_rag(rag, directory_path):
-    global chain
-    llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.2)
+    def initialize_rag(directory_path):
+        global chain
+        llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.2)
 
-    template = """
-    INSTRUCTIONS: 
-    ...
-    {question}
-    Answer:
-    """
+        template = """
+        INSTRUCTIONS: 
+        ...
+        {question}
+        Answer:
+        """
 
-    prompt = PromptTemplate(
-        input_variables=["history", "context", "question"],
-        template=template,
-    )
+        prompt = PromptTemplate(
+            input_variables=["history", "context", "question"],
+            template=template,
+        )
 
-    chain = RetrievalQA.from_chain_type(
-        llm=llm,
-        chain_type='stuff',
-        retriever=rag.finetune(directory_path),
-        chain_type_kwargs={
-            "verbose": False,
-            "prompt": prompt,
-            "memory": ConversationBufferMemory(memory_key="history", input_key="question"),
-        }
-    )
+        chain = RetrievalQA.from_chain_type(
+            llm=llm,
+            chain_type='stuff',
+            retriever=rag.finetune(directory_path),
+            chain_type_kwargs={
+                "verbose": False,
+                "prompt": prompt,
+                "memory": ConversationBufferMemory(memory_key="history", input_key="question"),
+            }
+        )

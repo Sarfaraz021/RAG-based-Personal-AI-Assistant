@@ -9,6 +9,7 @@ Dependencies:
 
 pip install langchain
 pip install pinecone-client
+pip install openpyxl
 pip install openai
 pip install python-dotenv
 pip install langchain_community
@@ -20,6 +21,7 @@ pip install "unstructured[pdf]
 pip install requests
 pip install fastapi
 pip install uvicorn
+
 
 
 Git Commands for version control:

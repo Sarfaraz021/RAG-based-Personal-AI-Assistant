@@ -5,7 +5,13 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.prompts.prompt import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain.memory import ConversationBufferMemory
-from langchain_community.document_loaders import DirectoryLoader
+# from langchain_community.document_loaders import DirectoryLoader
+from langchain_community.document_loaders import Docx2txtLoader
+from langchain_community.document_loaders import UnstructuredExcelLoader
+from langchain_community.document_loaders.csv_loader import CSVLoader
+from langchain_community.document_loaders import TextLoader
+from langchain_community.document_loaders import PyPDFLoader
+
 from langchain_pinecone import PineconeVectorStore
 from pinecone import Pinecone
 
@@ -15,6 +21,8 @@ class RAGAssistant:
         self.load_env_variables()
         self.setup_prompt_template()
         self.retriever = None  # Define retriever as an instance variable
+        default_documents_directory = r"D:\RAG-based-Personal-AI-Assistant\Main Code\Data\empty\ahmed.txt"
+        self.initialize_retriever(default_documents_directory)
         self.llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.2)
 
     def load_env_variables(self):
@@ -62,11 +70,10 @@ Answer:
             template=self.template,
         )
 
-    def finetune(self, directory_path):
-        """Fine-tunes the model with documents from the specified directory path."""
-        loader = DirectoryLoader(directory_path)
+    def initialize_retriever(self, directory_path):
+        """Initializes the retriever with documents from the specified directory path."""
+        loader = TextLoader(directory_path)
         documents = loader.load()
-        print(f"Loaded {len(documents)} documents for fine-tuning.")
         text_splitter = RecursiveCharacterTextSplitter(
             chunk_size=10000, chunk_overlap=200)
         docs = text_splitter.split_documents(documents)
@@ -75,14 +82,41 @@ Answer:
         Pinecone(api_key=self.pinecone_api_key, environment='gcp-starter')
         vectbd = PineconeVectorStore.from_documents(
             docs, embeddings, index_name=self.pinecone_index_name)
-        # Assign retriever to the instance variable
+        self.retriever = vectbd.as_retriever()
+
+    def finetune(self, file_path):
+        """Determines the document type and uses the appropriate loader to fine-tune the model."""
+        if file_path.endswith('.pdf'):
+            loader = PyPDFLoader(file_path)
+        elif file_path.endswith('.txt'):
+            loader = TextLoader(file_path)
+        elif file_path.endswith('.csv'):
+            loader = CSVLoader(file_path=file_path)
+        elif file_path.endswith('.xlsx'):
+            loader = UnstructuredExcelLoader(file_path, mode="elements")
+        elif file_path.endswith('.docx'):
+            loader = Docx2txtLoader(file_path)
+        else:
+            raise ValueError("Unsupported file type.")
+
+        documents = loader.load_and_split() if hasattr(
+            loader, 'load_and_split') else loader.load()
+
+        self.process_documents(documents)
+
+    def process_documents(self, documents):
+        """Process and index the documents."""
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=10000, chunk_overlap=200)
+        docs = text_splitter.split_documents(documents)
+        embeddings = OpenAIEmbeddings()
+        Pinecone(api_key=self.pinecone_api_key, environment='gcp-starter')
+        vectbd = PineconeVectorStore.from_documents(
+            docs, embeddings, index_name=self.pinecone_index_name)
         self.retriever = vectbd.as_retriever()
 
     def chat(self):
         """Starts a chat session with the AI assistant."""
-        if self.retriever is None:
-            print("Error: Retriever not initialized. Please fine-tune the model first.")
-            return
 
         chain = RetrievalQA.from_chain_type(
             llm=self.llm,

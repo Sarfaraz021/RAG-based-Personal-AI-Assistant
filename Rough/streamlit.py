@@ -115,7 +115,7 @@ prompt = PromptTemplate(
 rag_1 = RAG()  # class object
 
 
-st.title("RAG Assistant")
+st.title("KAVYA Assistant")
 
 choice = st.radio("Choose an option:", ('RAG Assistant', 'Finetune RAG'))
 

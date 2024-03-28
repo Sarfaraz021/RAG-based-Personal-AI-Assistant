@@ -5,13 +5,12 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain.prompts.prompt import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain.memory import ConversationBufferMemory
-# from langchain_community.document_loaders import DirectoryLoader
 from langchain_community.document_loaders import Docx2txtLoader
 from langchain_community.document_loaders import UnstructuredExcelLoader
 from langchain_community.document_loaders.csv_loader import CSVLoader
 from langchain_community.document_loaders import TextLoader
 from langchain_community.document_loaders import PyPDFLoader
-
+from fastapi import HTTPException
 from langchain_pinecone import PineconeVectorStore
 from pinecone import Pinecone
 
@@ -21,7 +20,7 @@ class RAGAssistant:
         self.load_env_variables()
         self.setup_prompt_template()
         self.retriever = None  # Define retriever as an instance variable
-        default_documents_directory = r"D:\RAG-based-Personal-AI-Assistant\Main Code\Data\empty\ahmed.txt"
+        default_documents_directory = r"D:\RAG-based-Personal-AI-Assistant\app\data\dummy.txt"
         self.initialize_retriever(default_documents_directory)
         self.llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.2)
 
@@ -35,7 +34,7 @@ class RAGAssistant:
     def setup_prompt_template(self):
         """Sets up the prompt template for chat completions."""
         self.template = """
-INSTRUCTIONS: 
+INSTRUCTIONS:
 
 You are a helpful assistant that will respond to my queries/prompts in a professional manner. You will answer the question, prompt, or query of the user in the French language if the user's prompt, query, or input is in French, and vice versa for all other languages.
 
@@ -84,7 +83,25 @@ Answer:
             docs, embeddings, index_name=self.pinecone_index_name)
         self.retriever = vectbd.as_retriever()
 
-    def finetune(self, file_path):
+    async def generate_response(self, query):
+        if not self.retriever:
+            raise HTTPException(
+                status_code=500, detail="Retriever not initialized")
+
+        # Here we create an instance of the RetrievalQA chain
+        chain = RetrievalQA.from_chain_type(
+            llm=self.llm,
+            chain_type='stuff',
+            retriever=self.retriever,  # Use the instance variable here
+            chain_type_kwargs={"verbose": False, "prompt": self.prompt_template,
+                               "memory": ConversationBufferMemory(memory_key="history", input_key="question")}
+        )
+
+        # We use the chain to invoke the model and generate a response
+        assistant_response = chain.invoke(query)
+        return assistant_response.get('result', 'No response generated')
+
+    async def finetune(self, file_path):
         """Determines the document type and uses the appropriate loader to fine-tune the model."""
         if file_path.endswith('.pdf'):
             loader = PyPDFLoader(file_path)
@@ -114,47 +131,3 @@ Answer:
         vectbd = PineconeVectorStore.from_documents(
             docs, embeddings, index_name=self.pinecone_index_name)
         self.retriever = vectbd.as_retriever()
-
-    def chat(self):
-        """Starts a chat session with the AI assistant."""
-
-        chain = RetrievalQA.from_chain_type(
-            llm=self.llm,
-            chain_type='stuff',
-            retriever=self.retriever,  # Use the instance variable here
-            chain_type_kwargs={"verbose": False, "prompt": self.prompt_template,
-                               "memory": ConversationBufferMemory(memory_key="history", input_key="question")}
-        )
-
-        print("----------RAG Assistant----------\n")
-        while True:
-            prompt = input("Enter Prompt (or 'exit' to quit): ").strip()
-            if prompt.lower() == "exit":
-                print("Thanks!! Exiting...")
-                break
-            else:
-                # Use 'chain' instead of 'self.chain'
-                assistant_response = chain.invoke(prompt)
-                print(f"AI Assistant: {assistant_response['result']}")
-                print("*********************************")
-
-    def start(self):
-        """Main function to start the assistant."""
-        while True:
-            choice = input(
-                "\nEnter 1 for RAG Assistant chat or 2 to Fine-tune RAG: ").strip()
-            if choice == "1":
-                self.chat()
-            elif choice == "2":
-                path = input(
-                    "Enter directory path to fine-tune the RAG: ").strip()
-                self.finetune(path)
-                print(
-                    "\nFine-tuning done successfully. You can now chat with the updated RAG Assistant.\n")
-            else:
-                print("Invalid choice. Please enter 1 or 2.")
-
-
-if __name__ == "__main__":
-    rag_assistant = RAGAssistant()
-    rag_assistant.start()

@@ -1,12 +1,9 @@
-# routers/chat_router.py
+# app/routers/chat_router.py
 
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from app.rag_assistant import RAGAssistant
-
-
-class ChatQuery(BaseModel):
-    query: str
+from app.models import ChatQuery
 
 
 router = APIRouter()

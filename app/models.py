@@ -1,5 +1,7 @@
-# from pydantic import BaseModel
+# app/models.py
+
+from pydantic import BaseModel
 
 
-# class ChatQuery(BaseModel):
-#     query: str
+class ChatQuery(BaseModel):
+    query: str

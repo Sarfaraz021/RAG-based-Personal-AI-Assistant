@@ -3,7 +3,7 @@
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel
 from app.rag_assistant import RAGAssistant
-from app.models import ChatQuery
+from app.models.models import ChatQuery
 
 
 router = APIRouter()

@@ -4,56 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RAG Assistant</title>
-    <link
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
-    <div class="container my-5">
-      <h1 class="text-center mb-4">RAG Assistant</h1>
+    <div id="loading" class="loading"></div>
+    <!-- Loading animation container -->
 
-      <!-- Chat Section -->
-      <div id="chat-section">
-        <h2 class="mb-3">Chat with AI</h2>
-        <div id="chat-window">
-          <!-- Messages will be appended here -->
-        </div>
-        <div class="input-group mb-3">
-          <input
-            type="text"
-            id="chat-input"
-            class="form-control"
-            placeholder="Type your message here..."
-          />
-          <div class="input-group-append">
-            <button onclick="sendChat()" class="btn btn-primary">Send</button>
-          </div>
-        </div>
-      </div>
+    <div class="wrapper">
+      <div class="container">
+        <header class="header">
+          <h1>RAG Assistant</h1>
+        </header>
 
-      <!-- Fine-tune Section -->
-      <div id="fine-tune-section" class="mt-5">
-        <h2>Fine-tune AI</h2>
-        <div class="input-group mb-3">
-          <div class="custom-file">
-            <input type="file" class="custom-file-input" id="fine-tune-file" />
-            <label class="custom-file-label" for="fine-tune-file"
-              >Choose file</label
-            >
-          </div>
-          <div class="input-group-append">
-            <button onclick="fineTuneAI()" class="btn btn-secondary">
+        <main class="main-content">
+          <section id="chat-section" class="chat-section">
+            <h2>Chat with AI</h2>
+            <div id="chat-window" class="chat-window"></div>
+            <div class="input-group">
+              <input
+                type="text"
+                id="chat-input"
+                class="chat-input"
+                placeholder="Type your message here..."
+              />
+              <button id="send-btn" class="send-btn">Send</button>
+            </div>
+          </section>
+
+          <section id="fine-tune-section" class="fine-tune-section">
+            <h2>Fine-tune AI</h2>
+            <input type="file" id="fine-tune-file" class="fine-tune-file" />
+            <button id="fine-tune-btn" class="fine-tune-btn">
               Upload & Fine-tune
             </button>
-          </div>
-        </div>
+          </section>
+        </main>
       </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

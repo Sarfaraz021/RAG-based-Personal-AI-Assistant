@@ -21,6 +21,11 @@ pip install "unstructured[pdf]
 pip install requests
 pip install fastapi
 pip install uvicorn
+pip install python-jose[cryptography]
+pip install motor
+pip install motor python-jose passlib
+pip install bcrypt
+
 
 Git Commands for version control:
 git add .
@@ -41,4 +46,13 @@ To test end points on Swagger UI:
 
 1 - uvicorn app.main:app --reload
 ---> Type the URL of your running FastAPI application followed by /docs. By default, the URL will be:
-http://127.0.0.1:8000/docs
+http://127.0.0.1:8000/docs swagger UI
+
+To Run Backend:
+uvicorn app.main:app --reload
+To run frontend:
+python -m http.server 8080
+URL: http://localhost:8080
+
+http://localhost:8080/login.html
+http://localhost:8080/signin.html

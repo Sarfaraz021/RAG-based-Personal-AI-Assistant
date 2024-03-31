@@ -135,17 +135,17 @@
 #     except ValueError:
 #         print("Please enter a numerical value.")
 
-from langchain_community.document_loaders import TextLoader
-from langchain_openai import OpenAIEmbeddings
-from langchain.text_splitter import CharacterTextSplitter
-import openai
-import os
-openai.api_key = "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"
-os.environ["OPENAI_API_KEY"] = openai.api_key
-file_path = r"D:\RAG-based-Personal-AI-Assistant\roshni.txt"
-loader = TextLoader(file_path, encoding="utf-8")
-documents = loader.load()
-text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
-docs = text_splitter.split_documents(documents)
+# from langchain_community.document_loaders import TextLoader
+# from langchain_openai import OpenAIEmbeddings
+# from langchain.text_splitter import CharacterTextSplitter
+# import openai
+# import os
+# openai.api_key = "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"
+# os.environ["OPENAI_API_KEY"] = openai.api_key
+# file_path = r"D:\RAG-based-Personal-AI-Assistant\roshni.txt"
+# loader = TextLoader(file_path, encoding="utf-8")
+# documents = loader.load()
+# text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+# docs = text_splitter.split_documents(documents)
 
-embeddings = OpenAIEmbeddings()
+# embeddings = OpenAIEmbeddings()

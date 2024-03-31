@@ -1,0 +1,292 @@
+.sendAMessage {
+  position: relative;
+  line-height: 100%;
+  font-weight: 600;
+  display: inline-block;
+  min-width: 125px;
+}
+.vectorIcon {
+  height: 5.9px;
+  width: 25px;
+  position: relative;
+  object-fit: contain;
+  display: none;
+}
+.input {
+  flex: 1;
+  border-radius: 5px;
+  background-color: var(--color-silver);
+  border: 1px solid var(--color-darkolivegreen-100);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-xl);
+  min-width: 125px;
+  max-width: 100%;
+}
+.frameChild {
+  align-self: stretch;
+  width: 74px;
+  position: relative;
+  border-radius: 0 var(--br-3xs) var(--br-3xs) 0;
+  background-color: var(--color-darkolivegreen-100);
+  display: none;
+  z-index: 0;
+}
+.vectorIcon1 {
+  height: 19.3px;
+  width: 19.3px;
+  position: absolute;
+  margin: 0 !important;
+  bottom: 16.9px;
+  left: 26.8px;
+  object-fit: contain;
+  z-index: 2;
+}
+.inputParent,
+.rectangleParent {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.rectangleParent {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: var(--color-darkolivegreen-100);
+  height: 54px;
+  width: 74px;
+  border-radius: 0 var(--br-3xs) var(--br-3xs) 0;
+  position: relative;
+  z-index: 1;
+  margin-left: -12px;
+}
+.inputParent {
+  align-self: stretch;
+  max-width: 100%;
+  row-gap: 20px;
+}
+.frameContainer,
+.frameItem {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.frameContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 0 var(--padding-3xs);
+  min-width: 651px;
+}
+.frameItem {
+  width: 408px;
+  height: 954px;
+  position: relative;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-silver);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 2px solid var(--color-darkolivegreen-100);
+  display: none;
+}
+.vectorIcon2 {
+  height: 100%;
+  width: 100%;
+  min-height: 16px;
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 32px;
+  transform: scale(6.46);
+}
+.wrapperVector {
+  height: 16px;
+  width: 15px;
+  position: relative;
+  min-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.uploadDocsHere {
+  position: relative;
+  font-size: var(--font-size-2xl);
+  line-height: 16px;
+  font-weight: 600;
+  font-family: var(--font-plus-jakarta-sans);
+  color: #faf1e4;
+  text-align: left;
+}
+.regenerateResponseButton {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-lgi) 19.5px;
+  background-color: var(--color-darkolivegreen-100);
+  height: 54px;
+  border-radius: var(--br-26xl);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  gap: var(--gap-3xs);
+  white-space: nowrap;
+  z-index: 1;
+}
+.regenerateResponseButton:hover {
+  background-color: #697a59;
+}
+.blankLine,
+.pdfTxtCsv,
+.supported {
+  margin: 0;
+  font-size: 20px;
+}
+.supportedPdfTxtContainer {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  line-height: 16px;
+  z-index: 1;
+  font-family: inherit;
+}
+.supportedPdfTxtCsvDocxWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 0 0 13px;
+}
+.rectangleGroup {
+  height: 954px;
+  border-radius: var(--br-3xs);
+  background-color: var(--color-silver);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border: 2px solid var(--color-darkolivegreen-100);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: var(--padding-360xl) 33px var(--padding-360xl) 77px;
+  gap: 45px;
+  min-width: 408px;
+  max-width: 100%;
+  font-size: 27px;
+  color: #000;
+}
+.frameGroup,
+.frameWrapper {
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+}
+.frameGroup {
+  flex: 1;
+  align-items: flex-end;
+  justify-content: flex-start;
+  gap: var(--gap-21xl);
+}
+.frameWrapper {
+  width: 1530px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 0 var(--padding-21xl);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--color-darkolivegreen-100);
+  font-family: var(--font-plus-jakarta-sans);
+}
+.aivaChatbotUiBlank,
+.frameParent {
+  display: flex;
+  justify-content: flex-start;
+}
+.frameParent {
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--gap-21xl);
+  min-width: 1033px;
+  max-width: 100%;
+}
+.aivaChatbotUiBlank {
+  width: 100%;
+  position: relative;
+  background-color: var(--color-silver);
+  overflow: hidden;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  letter-spacing: normal;
+  row-gap: 20px;
+}
+
+.userMessage,
+.assistantMessage {
+  font-size: 18px; /* Adjust the size as needed */
+  color: #000;
+}
+
+/* If you want to add spacing between consecutive messages */
+.messageBubble + .messageBubble {
+  margin-top: 16px; /* Adjust the space as needed */
+}
+
+@media screen and (max-width: 1250px) {
+  .rectangleGroup {
+    flex: 1;
+  }
+  .frameGroup {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .inputParent {
+    flex-wrap: wrap;
+  }
+  .rectangleGroup {
+    padding-top: var(--padding-227xl);
+    padding-bottom: var(--padding-227xl);
+    box-sizing: border-box;
+  }
+  .frameParent {
+    min-width: 100%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .frameContainer,
+  .rectangleGroup {
+    min-width: 100%;
+  }
+  .frameGroup {
+    gap: 40px 20px;
+  }
+  .frameParent {
+    gap: 20px 40px;
+  }
+}
+@media screen and (max-width: 450px) {
+  .rectangleParent {
+    margin-left: 0;
+  }
+  .supportedPdfTxtContainer {
+    font-size: 22px;
+    line-height: 13px;
+  }
+  .rectangleGroup {
+    gap: 22px 45px;
+    padding-left: var(--padding-xl);
+    padding-top: var(--padding-141xl);
+    padding-bottom: var(--padding-141xl);
+    box-sizing: border-box;
+  }
+}

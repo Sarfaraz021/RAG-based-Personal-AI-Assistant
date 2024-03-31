@@ -24,7 +24,7 @@ class RAGAssistant:
         self.retriever = None  # Define retriever as an instance variable
         default_documents_directory = r"D:\RAG-based-Personal-AI-Assistant\app\data\dummy.txt"
         self.initialize_retriever(default_documents_directory)
-        self.llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.2)
+        self.llm = ChatOpenAI(model="gpt-4-turbo-preview", temperature=0.2)
 
     def load_env_variables(self):
         """Loads environment variables from .env file."""

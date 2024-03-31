@@ -1,0 +1,193 @@
+.frameChild {
+  align-self: stretch;
+  height: 1156px;
+  position: relative;
+  background-color: var(--color-darkolivegreen-100);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  display: none;
+}
+.danysAssistant {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  line-height: 100%;
+  font-weight: 400;
+  font-family: inherit;
+  z-index: 1;
+}
+.danysAssistantWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-32xl) 0 var(--padding-30xl);
+}
+.separatorIcon {
+  align-self: stretch;
+  height: 1px;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.frameItem {
+  height: 60px;
+  width: 244px;
+  position: relative;
+  border-radius: var(--br-21xl);
+  background-color: var(--color-darkslategray);
+  display: none;
+}
+.icroundAddIcon,
+.newChat {
+  position: relative;
+  z-index: 2;
+}
+.icroundAddIcon {
+  height: 24px;
+  width: 24px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.newChat {
+  line-height: 100%;
+  display: inline-block;
+  min-width: 73px;
+}
+.newChatWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-8xs) 0 0;
+}
+.rectangleGroup {
+  align-self: stretch;
+  border-radius: var(--br-21xl);
+  background-color: var(--color-darkslategray);
+  flex-direction: row;
+  padding: var(--padding-lg) var(--padding-6xl);
+  gap: var(--gap-6xs);
+  z-index: 1;
+}
+.frameParent,
+.frameWrapper,
+.rectangleGroup {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frameWrapper {
+  width: 292px;
+  flex-direction: row;
+  padding: 0 var(--padding-5xl);
+  box-sizing: border-box;
+  font-size: var(--font-size-mini);
+}
+.frameParent {
+  align-self: stretch;
+  flex-direction: column;
+  gap: var(--gap-20xl-5);
+}
+.vectorIcon {
+  height: 100%;
+  width: 100%;
+  min-height: 16px;
+  object-fit: contain;
+  position: absolute;
+  left: 0;
+  top: 32px;
+  transform: scale(6.463);
+}
+.wrapperVector {
+  height: 16px;
+  width: 15px;
+  position: relative;
+  min-height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upgradeToPlus {
+  position: relative;
+  font-size: var(--font-size-sm);
+  line-height: 16px;
+  font-weight: 600;
+  font-family: var(--font-plus-jakarta-sans);
+  color: var(--color-darkolivegreen-100);
+  text-align: left;
+  display: inline-block;
+  min-width: 108px;
+}
+.rectangleParent,
+.regenerateResponseButton,
+.regenerateResponseButtonWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.regenerateResponseButton {
+  cursor: pointer;
+  border: 0;
+  padding: var(--padding-lgi) var(--padding-36xl-5);
+  background-color: var(--color-silver);
+  height: 54px;
+  border-radius: var(--br-26xl);
+  overflow: hidden;
+  box-sizing: border-box;
+  gap: var(--gap-3xs);
+  white-space: nowrap;
+  z-index: 1;
+}
+.regenerateResponseButton:hover {
+  background-color: var(--color-darkgray);
+}
+.rectangleParent,
+.regenerateResponseButtonWrapper {
+  padding: 0 var(--padding-5xl);
+}
+.rectangleParent {
+  height: 1156px;
+  width: 330px;
+  background-color: var(--color-darkolivegreen-100);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  flex-direction: column;
+  padding: var(--padding-33xl) 0 var(--padding-21xl);
+  box-sizing: border-box;
+  gap: var(--gap-825xl);
+  max-width: 100%;
+  text-align: left;
+  font-size: var(--font-size-7xl);
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}
+@media screen and (max-width: 1050px) {
+  .rectangleParent {
+    padding-top: var(--padding-15xl);
+    padding-bottom: var(--padding-7xl);
+    box-sizing: border-box;
+  }
+}
+@media screen and (max-width: 450px) {
+  .danysAssistant {
+    font-size: var(--font-size-2xl);
+    line-height: 21px;
+  }
+  .danysAssistantWrapper {
+    padding-left: var(--padding-xl);
+    padding-right: var(--padding-xl);
+    box-sizing: border-box;
+  }
+  .frameParent {
+    gap: 20px 39.5px;
+  }
+  .rectangleParent {
+    gap: 422px 844px;
+    padding-top: var(--padding-3xl);
+    padding-bottom: var(--padding-xl);
+    box-sizing: border-box;
+  }
+}

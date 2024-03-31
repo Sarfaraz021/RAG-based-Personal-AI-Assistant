@@ -20,12 +20,21 @@ app = FastAPI(title="RAG Assistant API",
 # async def shutdown_event():
 #     await close_mongo_connection()
 
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=["http://localhost:8080"],  # The origin of your frontend
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8080"],  # The origin of your frontend
+    # Or the actual URL of your frontend app
+    allow_origins=["http://localhost:3000"],
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # Or specify particular HTTP methods if needed
+    allow_headers=["*"],  # Or specify particular headers if needed
 )
 
 # Include the routers for different functionalities
